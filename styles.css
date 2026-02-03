@@ -287,6 +287,13 @@ nav {
   color: var(--muted);
 }
 
+.status {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
 .player-progress input[type="range"] {
   flex: 1;
   appearance: none;
