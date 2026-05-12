@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FrostTrack | Control logístico en cadena de frío</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWix+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8LJgyAHIhR35VZc2oM/gI1w8gQz8JfQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-icon"><i class="fa-solid fa-snowflake"></i></div>
+          <div>
+            <h1>FrostTrack</h1>
+            <p>Cold Chain SaaS</p>
+          </div>
+        </div>
+
+        <nav class="menu">
+          <a class="active" href="#dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+          <a href="#pedidos"><i class="fa-solid fa-box"></i> Pedidos</a>
+          <a href="#mapa"><i class="fa-solid fa-map-location-dot"></i> Mapa en tiempo real</a>
+          <a href="#alertas"><i class="fa-solid fa-bell"></i> Alertas</a>
+          <a href="#monitoreo"><i class="fa-solid fa-users-viewfinder"></i> Monitoreo</a>
+          <a href="#reportes"><i class="fa-solid fa-file-lines"></i> Historial y reportes</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <h2>Panel operativo - Zona Metropolitana</h2>
+            <p>Visibilidad en tiempo real de entregas congeladas</p>
+          </div>
+          <button class="action"><i class="fa-solid fa-plus"></i> Nuevo pedido</button>
+        </header>
+
+        <section id="dashboard" class="panel">
+          <h3>Dashboard principal</h3>
+          <div class="stats-grid">
+            <article class="stat-card">
+              <span>Pedidos activos</span>
+              <strong>128</strong>
+            </article>
+            <article class="stat-card ok">
+              <span>Entregados</span>
+              <strong>942</strong>
+            </article>
+            <article class="stat-card warn">
+              <span>Retrasados</span>
+              <strong>16</strong>
+            </article>
+            <article class="stat-card danger">
+              <span>Cancelados</span>
+              <strong>7</strong>
+            </article>
+          </div>
+
+          <div class="two-col">
+            <article class="card cold-chain">
+              <h4><i class="fa-solid fa-temperature-quarter"></i> Indicador de cadena de frío</h4>
+              <div class="thermo-bar">
+                <span style="width: 82%"></span>
+              </div>
+              <p>Nivel seguro: 82% de pedidos dentro de ventana térmica óptima.</p>
+            </article>
+            <article class="card metrics">
+              <h4><i class="fa-solid fa-gauge-high"></i> Métricas rápidas</h4>
+              <ul>
+                <li><span>Tiempo promedio de entrega</span><strong>38 min</strong></li>
+                <li><span>Devoluciones</span><strong>2.4%</strong></li>
+                <li><span>Rutas activas</span><strong>34</strong></li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="pedidos" class="panel">
+          <div class="panel-head">
+            <h3>Módulo de pedidos</h3>
+            <input type="search" placeholder="Buscar por código de rastreo" />
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rastreo</th>
+                  <th>Cliente</th>
+                  <th>Dirección</th>
+                  <th>Salida</th>
+                  <th>Límite</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>FT-94021</td>
+                  <td>Mercado Boreal</td>
+                  <td>Av. Norte 249</td>
+                  <td>10:10</td>
+                  <td>11:00</td>
+                  <td><span class="pill route">En ruta</span></td>
+                </tr>
+                <tr>
+                  <td>FT-94022</td>
+                  <td>Almacén Polar</td>
+                  <td>Calle 11 #62</td>
+                  <td>09:50</td>
+                  <td>10:40</td>
+                  <td><span class="pill warn">Retrasado</span></td>
+                </tr>
+                <tr>
+                  <td>FT-94023</td>
+                  <td>Frosty Shop</td>
+                  <td>Paseo Pacífico 44</td>
+                  <td>10:25</td>
+                  <td>11:05</td>
+                  <td><span class="pill pending">Pendiente</span></td>
+                </tr>
+                <tr>
+                  <td>FT-94024</td>
+                  <td>Casa Fría</td>
+                  <td>Río Sur 876</td>
+                  <td>09:20</td>
+                  <td>10:20</td>
+                  <td><span class="pill return">Devolución requerida</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="mapa" class="panel">
+          <h3>Mapa en tiempo real</h3>
+          <div class="map-layout">
+            <article class="map-card">
+              <div class="map-placeholder">
+                <i class="fa-solid fa-location-dot"></i>
+                <p>Ruta estimada en vivo · Repartidor #D14</p>
+              </div>
+            </article>
+            <article class="card map-legend">
+              <h4>Riesgo por tiempo restante</h4>
+              <ul>
+                <li><span class="dot green"></span> Verde = seguro</li>
+                <li><span class="dot yellow"></span> Amarillo = tiempo ajustado</li>
+                <li><span class="dot red"></span> Rojo = riesgo de ruptura</li>
+              </ul>
+              <p>Tiempo restante estimado: <strong>12 min</strong></p>
+            </article>
+          </div>
+        </section>
+
+        <section id="alertas" class="panel">
+          <h3>Sistema de alertas</h3>
+          <article class="alert-card" id="critical-alert">
+            <div>
+              <h4><i class="fa-solid fa-triangle-exclamation"></i> Pedido FT-94022 próximo a vencer</h4>
+              <p>Faltan 6 minutos para exceder el tiempo máximo de entrega.</p>
+            </div>
+            <div class="alert-actions">
+              <button class="secondary">Regresar a origen</button>
+              <button>Continuar entrega</button>
+            </div>
+          </article>
+        </section>
+
+        <section id="monitoreo" class="panel">
+          <h3>Panel de monitoreo para supervisor</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Repartidor</th>
+                  <th>Unidad</th>
+                  <th>Pedidos asignados</th>
+                  <th>Estado de ruta</th>
+                  <th>Temperatura</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Daniel Ruiz</td>
+                  <td>VAN-07</td>
+                  <td>5</td>
+                  <td><span class="pill ok">Estable</span></td>
+                  <td>-18°C</td>
+                </tr>
+                <tr>
+                  <td>Sofía Méndez</td>
+                  <td>TRK-12</td>
+                  <td>4</td>
+                  <td><span class="pill warn">Ajustado</span></td>
+                  <td>-15°C</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="reportes" class="panel">
+          <h3>Historial y reportes</h3>
+          <div class="reports">
+            <article class="card"><h4>Entregas exitosas</h4><p>97.1% en los últimos 30 días.</p></article>
+            <article class="card"><h4>Pedidos devueltos</h4><p>23 devoluciones por vencimiento de tiempo.</p></article>
+            <article class="card"><h4>Rendimiento por repartidor</h4><p>Top performer: Daniel Ruiz (99.2% SLA).</p></article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
